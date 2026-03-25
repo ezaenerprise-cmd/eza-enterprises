@@ -1,151 +1,425 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EZA Enterprises | Mobile Mechanic Inland Empire</title>
+export default function EZAEnterpriseWebsite() {
+  const phoneDisplay = "(909) 329-4858";
+  const phoneHref = "tel:9093294858";
+  const email = "ezaenerprise@gmail.com";
+  const address = "1311 Park St Unit #496, Alameda, CA 94501";
 
-<meta name="description" content="EZA Enterprises Mobile Mechanic serving San Bernardino, Fontana, Rialto, Moreno Valley and surrounding Inland Empire cities. Call (909) 329-4858.">
+  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+    email
+  )}&su=${encodeURIComponent("Quote Request - EZA Enterprise")}&body=${encodeURIComponent(
+    "Hello EZA Enterprise,%0D%0A%0D%0AI would like to request a quote for the following service:%0D%0A%0D%0AService Needed:%0D%0ALocation:%0D%0ATimeline:%0D%0AProject Details:%0D%0ABest Contact Number:%0D%0A%0D%0AThank you."
+  )}`;
 
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
+  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(
+    "Quote Request - EZA Enterprise"
+  )}&body=${encodeURIComponent(
+    "Hello EZA Enterprise,\n\nI would like to request a quote for the following service:\n\nService Needed:\nLocation:\nTimeline:\nProject Details:\nBest Contact Number:\n\nThank you."
+  )}`;
 
-<body class="bg-gray-900 text-white">
+  const services = [
+    {
+      title: "Hauling & Junk Removal",
+      text: "Fast removal for residential, commercial, and job-site debris with reliable scheduling and professional coordination.",
+    },
+    {
+      title: "Property Services",
+      text: "Support for cleanup, site prep, maintenance coordination, and general field services for homes and businesses.",
+    },
+    {
+      title: "General Labor",
+      text: "On-demand labor support for moving, lifting, setup, teardown, cleanup, and time-sensitive project needs.",
+    },
+    {
+      title: "Handyman & Small Construction",
+      text: "Light construction support, repair coordination, site improvements, and small project execution from start to finish.",
+    },
+    {
+      title: "Large Construction Support",
+      text: "Scalable project support through coordinated crews, labor sourcing, scheduling, and field management for larger jobs.",
+    },
+    {
+      title: "Delivery & Moving Help",
+      text: "Local project-based moving help, deliveries, and labor-backed transport coordination for residential and commercial needs.",
+    },
+    {
+      title: "Staffing Solutions",
+      text: "Flexible staffing support for general labor, warehouse help, moving crews, event support, cleanup teams, and more.",
+    },
+  ];
 
-<header class="bg-black border-b border-gray-700">
-<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+  const faqs = [
+    {
+      q: "What areas do you serve?",
+      a: "EZA Enterprise serves Inland Empire and Los Angeles service areas for project management, staffing, and field services.",
+    },
+    {
+      q: "Do you provide pricing online?",
+      a: "No. Every project is different, so we provide custom quotes based on scope, timeline, location, and labor requirements.",
+    },
+    {
+      q: "Can I request both labor and project management?",
+      a: "Yes. We can coordinate the full project while also supplying labor and staffing support where needed.",
+    },
+    {
+      q: "How do I request a quote?",
+      a: "You can call us, use the contact form, or click the quote button to open a prefilled email draft addressed to our team.",
+    },
+  ];
 
-<div>
-<h1 class="text-2xl font-bold">EZA Enterprises</h1>
-<p class="text-gray-400 text-sm">Mobile Mechanic – Inland Empire</p>
-</div>
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <div>
+            <div className="text-2xl font-bold tracking-tight">EZA Enterprise</div>
+            <div className="text-sm text-slate-600">Managed Right. Built to Deliver.</div>
+          </div>
 
-<div class="flex gap-3">
+          <div className="hidden items-center gap-6 md:flex">
+            <a href="#home" className="text-sm font-medium hover:text-slate-600">Home</a>
+            <div className="group relative">
+              <button className="text-sm font-medium hover:text-slate-600">Services</button>
+              <div className="invisible absolute right-0 top-full mt-3 w-72 rounded-2xl border border-slate-200 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                <div className="grid gap-2">
+                  {services.map((service) => (
+                    <a
+                      key={service.title}
+                      href="#services"
+                      className="rounded-xl px-3 py-2 text-sm hover:bg-slate-100"
+                    >
+                      {service.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <a href="#staffing" className="text-sm font-medium hover:text-slate-600">Staffing</a>
+            <a href="#about" className="text-sm font-medium hover:text-slate-600">About</a>
+            <a href="#contact" className="text-sm font-medium hover:text-slate-600">Contact</a>
+            <a
+              href={gmailLink}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-800"
+            >
+              Get Quote
+            </a>
+          </div>
+        </div>
+      </header>
 
-<a href="tel:+19093294858" class="bg-green-500 text-black px-4 py-2 rounded-lg font-bold">
-Call
-</a>
+      <main>
+        <section id="home" className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80"
+              alt="Construction and project management"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-slate-950/65" />
+          </div>
 
-<a href="sms:+19093294858" class="bg-blue-500 text-white px-4 py-2 rounded-lg font-bold">
-Text
-</a>
+          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+            <div className="max-w-3xl">
+              <div className="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur">
+                Project Management • Staffing • Field Services
+              </div>
+              <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+                Professional Project Management and Staffing Solutions You Can Count On
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+                EZA Enterprise delivers coordinated service solutions for residential, commercial,
+                and field-based projects across Inland Empire and Los Angeles. From hauling and
+                labor to staffing and construction support, we manage the details so your project
+                moves forward with confidence.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={gmailLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
+                >
+                  Get a Quote
+                </a>
+                <a
+                  href={phoneHref}
+                  className="rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
+                >
+                  Call {phoneDisplay}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
-</div>
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              "Single point of contact for your project",
+              "Flexible labor and staffing coordination",
+              "Professional support for fast-moving job demands",
+            ].map((item) => (
+              <div key={item} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="text-lg font-semibold">{item}</div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-</div>
-</header>
+        <section id="services" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mb-10 max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Services</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Managed solutions for projects of every size</h2>
+            <p className="mt-4 text-slate-600">
+              We provide coordinated service support designed to help clients simplify execution,
+              reduce stress, and keep projects moving with the right people and the right plan.
+            </p>
+          </div>
 
-<section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service, index) => {
+              const images = [
+                "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
+                "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80",
+                "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+                "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+                "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
+                "https://images.unsplash.com/photo-1556155092-8707de31f9c4?auto=format&fit=crop&w=1200&q=80",
+                "https://images.unsplash.com/photo-1521790797524-b2497295b8a0?auto=format&fit=crop&w=1200&q=80",
+              ];
+              return (
+                <div
+                  key={service.title}
+                  className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <img
+                    src={images[index % images.length]}
+                    alt={service.title}
+                    className="h-52 w-full object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold">{service.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{service.text}</p>
+                    <div className="mt-5 text-sm font-semibold text-slate-900">Contact for quote</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
 
-<div>
+        <section id="staffing" className="bg-white py-16">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Staffing</p>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Workforce support when you need it most</h2>
+              <p className="mt-4 text-slate-600">
+                EZA Enterprise helps clients secure dependable labor and staffing support for
+                changing project demands. Whether you need extra hands for a short-term job or
+                coordinated labor for a larger operation, we help simplify workforce management.
+              </p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {[
+                  "General Labor",
+                  "Warehouse Support",
+                  "Moving Crews",
+                  "Site Cleanup Teams",
+                  "Event Support",
+                  "Construction Labor",
+                ].map((item) => (
+                  <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80"
+                alt="Staffing and workforce coordination"
+                className="h-full min-h-[320px] w-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
 
-<h2 class="text-4xl font-bold leading-tight">
-Need a Mobile Mechanic?
-</h2>
+        <section id="about" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">About</p>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">A company built around coordination, reliability, and execution</h2>
+              <p className="mt-4 text-slate-600 leading-8">
+                EZA Enterprise is a project management company focused on delivering practical,
+                reliable service solutions for clients who need a single trusted point of contact.
+                We coordinate labor, staffing, field services, hauling, construction support, and
+                other project-based work with a professional approach centered on responsiveness,
+                organization, and results.
+              </p>
+              <p className="mt-4 text-slate-600 leading-8">
+                Our goal is simple: make project execution easier. From the first call to the final
+                walkthrough, we aim to bring structure, communication, and dependable support to
+                every job we manage.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h3 className="text-xl font-semibold">Why clients choose EZA Enterprise</h3>
+              <div className="mt-6 space-y-4">
+                {[
+                  "Responsive communication",
+                  "Flexible project support",
+                  "Reliable labor coordination",
+                  "Corporate-style presentation with hands-on field execution",
+                  "Custom quotes based on your exact needs",
+                ].map((item) => (
+                  <div key={item} className="flex gap-3">
+                    <div className="mt-1 h-2.5 w-2.5 rounded-full bg-slate-900" />
+                    <div className="text-slate-700">{item}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
-<p class="text-gray-300 mt-5 text-lg">
-EZA Enterprises provides fast on-site diagnostics and repair across the Inland Empire.
-Skip the tow truck and get your car fixed where it sits.
-</p>
+        <section id="faq" className="bg-slate-100 py-16">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">FAQ</p>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Frequently asked questions</h2>
+            </div>
+            <div className="space-y-4">
+              {faqs.map((item) => (
+                <details key={item.q} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <summary className="cursor-pointer list-none text-lg font-semibold">{item.q}</summary>
+                  <p className="mt-4 text-slate-600 leading-7">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
 
-<div class="mt-8 flex gap-4 flex-wrap">
+        <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="rounded-3xl bg-slate-900 p-8 text-white shadow-xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-300">Contact</p>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight">Let’s talk about your project</h2>
+              <p className="mt-4 text-slate-300 leading-8">
+                Contact EZA Enterprise for project coordination, service support, labor requests,
+                or custom staffing solutions.
+              </p>
+              <div className="mt-8 space-y-5 text-sm">
+                <div>
+                  <div className="font-semibold text-white">Phone</div>
+                  <a href={phoneHref} className="text-slate-300 hover:text-white">{phoneDisplay}</a>
+                </div>
+                <div>
+                  <div className="font-semibold text-white">Email</div>
+                  <a href={`mailto:${email}`} className="break-all text-slate-300 hover:text-white">{email}</a>
+                </div>
+                <div>
+                  <div className="font-semibold text-white">Mailing Address</div>
+                  <div className="text-slate-300">{address}</div>
+                </div>
+                <div>
+                  <div className="font-semibold text-white">Service Areas</div>
+                  <div className="text-slate-300">Inland Empire and Los Angeles</div>
+                </div>
+              </div>
+            </div>
 
-<a href="tel:+19093294858" class="bg-green-500 text-black px-6 py-3 rounded-lg font-bold">
-Call (909) 329-4858
-</a>
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h3 className="text-2xl font-semibold">Request Information</h3>
+              <p className="mt-2 text-slate-600">
+                Fill out the form below. For a ready-to-send email quote request, use the quote
+                button as well.
+              </p>
 
-<a href="sms:+19093294858" class="bg-blue-500 px-6 py-3 rounded-lg font-bold">
-Text for Quote
-</a>
+              <form
+                className="mt-8 grid gap-5"
+                action={mailtoLink}
+                method="post"
+                encType="text/plain"
+              >
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">Full Name</label>
+                    <input
+                      type="text"
+                      placeholder="Your name"
+                      className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">Phone Number</label>
+                    <input
+                      type="tel"
+                      placeholder="Your phone number"
+                      className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-900"
+                    />
+                  </div>
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">Email Address</label>
+                    <input
+                      type="email"
+                      placeholder="Your email"
+                      className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">Service Needed</label>
+                    <select className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-900">
+                      <option>Choose a service</option>
+                      {services.map((service) => (
+                        <option key={service.title}>{service.title}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium">Project Details</label>
+                  <textarea
+                    rows={6}
+                    placeholder="Tell us about your project, timeline, location, and what support you need."
+                    className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-900"
+                  />
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  <button
+                    type="submit"
+                    className="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  >
+                    Send via Email App
+                  </button>
+                  <a
+                    href={gmailLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-2xl border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+                  >
+                    Open Gmail Quote Draft
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
 
-<a href="mailto:ezaenerprise@gmail.com" class="bg-gray-700 px-6 py-3 rounded-lg font-bold">
-Email
-</a>
-
-</div>
-
-</div>
-
-<div class="bg-gray-800 p-6 rounded-xl">
-
-<h3 class="text-2xl font-bold">Common Repairs</h3>
-
-<ul class="mt-4 space-y-3 text-gray-300">
-
-<li>Battery replacement</li>
-<li>Starter replacement</li>
-<li>Alternator replacement</li>
-<li>No-start diagnosis</li>
-<li>Brake pads and rotors</li>
-<li>Window regulator repair</li>
-<li>Check engine light diagnostics</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section class="bg-black py-14">
-
-<div class="max-w-6xl mx-auto px-6">
-
-<h2 class="text-3xl font-bold mb-6">Service Areas</h2>
-
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-gray-300">
-
-<div>San Bernardino</div>
-<div>Fontana</div>
-<div>Rialto</div>
-<div>Colton</div>
-<div>Redlands</div>
-<div>Moreno Valley</div>
-<div>Highland</div>
-<div>Rancho Cucamonga</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="max-w-6xl mx-auto px-6 py-16 text-center">
-
-<h2 class="text-4xl font-bold">
-Call or Text Now
-</h2>
-
-<p class="text-gray-400 mt-4">
-Tell us your vehicle, your city, and what the car is doing.
-</p>
-
-<div class="mt-8 flex justify-center gap-4 flex-wrap">
-
-<a href="tel:+19093294858" class="bg-green-500 text-black px-6 py-3 rounded-lg font-bold">
-(909) 329-4858
-</a>
-
-<a href="sms:+19093294858" class="bg-blue-500 px-6 py-3 rounded-lg font-bold">
-Text
-</a>
-
-<a href="mailto:ezaenerprise@gmail.com" class="bg-gray-700 px-6 py-3 rounded-lg font-bold">
-Email
-</a>
-
-</div>
-
-</section>
-
-<footer class="bg-black border-t border-gray-800 py-6 text-center text-gray-400">
-
-<p>© EZA Enterprises</p>
-
-<p class="mt-2">
-(909) 329-4858 | ezaenerprise@gmail.com
-</p>
-
-</footer>
-
-</body>
-</html>
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div>
+            <div className="font-semibold text-slate-900">EZA Enterprise</div>
+            <div>Managed Right. Built to Deliver.</div>
+          </div>
+          <div className="flex flex-col gap-1 text-left lg:text-right">
+            <div>{address}</div>
+            <div>Phone: {phoneDisplay} • Email: {email}</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
